@@ -7,6 +7,10 @@ The saved products will be displayed for the user currently logged in.
 ### All products from selected supermarket
 The display of product according to the selected filter.
 ### Display scanned products
-Display product scanned trough QR codes
+Display product scanned trough QR codes.
 
 The product display should be a micro-frontend service due to it's flexibility, different products will be displayed according to different filters (saved, point of origin, importance) so flexibility is extremely important and reusability, since product display is present in different parts of the app being able to resuse this micro-frontend will increase performance in developement. 
+
+<img src="img/products.JPG"
+     alt="Markdown Monster icon"
+     style="margin-left: auto; margin-right: auto; width: 80%; display: block" />
