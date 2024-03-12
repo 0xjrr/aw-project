@@ -6,8 +6,6 @@ The most important products will be displayed such as more environment friendly 
 The saved products will be displayed for the user currently logged in.
 ### All products from selected supermarket
 The display of product according to the selected filter.
-### Display scanned products
-Display product scanned trough QR codes.
 ### Product description
 Upon selecting a product, users can access detailed information about the products such as: Producer, origin, feeding regiment, age and race.
 ### Extra information table

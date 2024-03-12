@@ -9,7 +9,7 @@
     <td rowspan="2"><img src="../img/productDisplay.JPG"
      alt="Markdown Monster icon"
      style="margin-left: auto; margin-right: auto; width: 70%; display: block" /></td>
-    <td >Display highlighted products</td>
+    <td> Highlighted products</td>
   </tr>
   <tr>
     
@@ -18,7 +18,7 @@
     <td><img src="../img/productDisplay2.JPG"
      alt="Markdown Monster icon"
      style="margin-left: auto; margin-right: auto; width: 70%; display: block" /></td>
-    <td>Display general information about the selected product</td>
+    <td>General information about the selected product</td>
   </tr>
   <tr>
     <td><img src="../img/productDisplay3.JPG"
@@ -30,19 +30,19 @@
     <td><img src="../img/productDisplay4.JPG"
      alt="Markdown Monster icon"
      style="margin-left: auto; margin-right: auto; width: 70%; display: block" /></td>
-    <td>Display filtered products</td>
+    <td>Filtered products</td>
   </tr>
   <tr>
     <td><img src="../img/productDisplay5.JPG"
      alt="Markdown Monster icon"
      style="margin-left: auto; margin-right: auto; width: 70%; display: block" /></td>
-    <td>Display detailed information</td>
+    <td>Detailed information</td>
   </tr>
   <tr>
     <td><img src="../img/productDisplay6.JPG"
      alt="Markdown Monster icon"
      style="margin-left: auto; margin-right: auto; width: 70%; display: block" /></td>
-    <td>Display data about the original animal</td>
+    <td>Data about the original animal</td>
   </tr>
 
   
