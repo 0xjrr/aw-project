@@ -18,7 +18,7 @@
     <td><img src="../img/productDisplay2.JPG"
      alt="Markdown Monster icon"
      style="margin-left: auto; margin-right: auto; width: 70%; display: block" /></td>
-    <td>General information about the selected product</td>
+    <td>Information about the product</td>
   </tr>
   <tr>
     <td><img src="../img/productDisplay3.JPG"
