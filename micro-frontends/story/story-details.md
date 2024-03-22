@@ -2,13 +2,12 @@
 
 ```mermaid
 stateDiagram-v2
-    [*] --> LandingPage: User arrives
-    LandingPage --> Store: User searches and filters
+    [*] --> Store: User searches and filters
     Store --> Categories: User selects filter
     Categories --> Products: User selects a category
     Products --> Details: User selects a product
-    Details --> Products: User returns to category
-    LandingPage --> QRCode: User clicks QR Code
+    Details --> Products: User returns 
+    [*] --> QRCode: User clicks QR Code
     QRCode --> Details: User scans the QR Code
-    Details --> [*]: User views details
+    Details --> [*]: User views product information
 ```
