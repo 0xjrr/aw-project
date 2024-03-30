@@ -1,5 +1,7 @@
 ```mermaid
 stateDiagram-v2
+    classDef coloring fill:green  
+
     [*] --> Filter
     FilteredPage --> Geolocalization: Contains
     FilteredPage --> Filter: Contains
@@ -10,4 +12,6 @@ stateDiagram-v2
     FeedbackPage --> Feedback: Contains
     ProductsPage --> FeedbackPage: Select product and give feedback
     FeedbackPage --> [*]
+
+    class Geolocalization, Menu, Products, Feedback, Filter coloring
 ```
