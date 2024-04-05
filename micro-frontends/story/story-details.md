@@ -2,6 +2,10 @@
 stateDiagram-v2
     classDef coloring fill:teal 
 
+    state "View" as LegendView
+
+    state "Action" as ActionView
+
     state "Main Page" as StartView
     state "QR Code Scan" as QRCodeView
     state "Categories List" as CategoriesView   
@@ -24,6 +28,6 @@ stateDiagram-v2
     Details --> DetailsView: Contains
 
 
-    Class QRCodeView, ProductsView, CategoriesView, StartView, DetailsView coloring
+    Class QRCodeView, ProductsView, CategoriesView, StartView, DetailsView, LegendView coloring
 
 ```
