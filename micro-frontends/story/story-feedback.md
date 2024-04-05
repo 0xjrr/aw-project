@@ -1,6 +1,6 @@
 ```mermaid
 stateDiagram-v2
-    classDef coloring fill:green  
+    classDef coloring fill:teal  
 
     [*] --> Filter
     FilteredPage --> Geolocalization: Contains
