@@ -2,7 +2,7 @@
 stateDiagram-v2
     classDef coloring fill:teal 
 
-    state "View" as LegendView
+    state "micro-frontend" as LegendView
 
     state "Action" as ActionView
 
