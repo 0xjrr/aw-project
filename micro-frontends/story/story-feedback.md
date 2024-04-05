@@ -2,6 +2,10 @@
 stateDiagram-v2
     classDef coloring fill:teal  
 
+    state "View" as LegendView
+
+    state "Action" as ActionView
+
     [*] --> Filter
     FilteredPage --> Geolocalization: Contains
     FilteredPage --> Filter: Contains
@@ -13,5 +17,5 @@ stateDiagram-v2
     ProductsPage --> FeedbackPage: Select product and give feedback
     FeedbackPage --> [*]
 
-    class Geolocalization, Menu, Products, Feedback, Filter coloring
+    class Geolocalization, Menu, Products, Feedback, Filter, LegendView coloring
 ```
