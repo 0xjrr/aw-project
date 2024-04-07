@@ -12,6 +12,6 @@ Allows user to se personal information about the account that is currently logge
 The menu system should be a micro-frontend due to its single responsability, this system will allow user to navigate to different parts of the app, reusability, this system can be replicated in any needed part of the app, flexibility, the menu system can be reajusted or changed without affecting any other team and since it's a simple system changes won't be very demanding.
 
 
-<img src="img/menu.JPG"
+<img src="../img/menu.JPG"
      alt="Markdown Monster icon"
      style="margin-left: auto; margin-right: auto; width: 30%; display: block" />

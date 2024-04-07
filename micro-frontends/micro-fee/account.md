@@ -19,6 +19,6 @@ Allows new user to make an account in order to use the app.
 
 The account management system should be a micro-frontend system due to it's single responsability, every feature of this micro-frontend will be related to the account management of the user, flexibility, if needed more features can be added or removed and team autonomy, the team responsible for this system is not dependent of any other teams working on the app.
 
-<img src="img/account.JPG"
+<img src="../img/account.JPG"
      alt="Markdown Monster icon"
      style="margin-left: auto; margin-right: auto; width: 60%; display: block" />

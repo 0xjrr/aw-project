@@ -9,6 +9,6 @@ Allow users to have access to statistics such as animal production, methane emis
 
 News system should be a micro-frontend due to it's simplicity, the team will only focus in displaying the news and allowing user to read them in more detail after their selection, independent deployment, the news system cam be implemented without depending on other teams and micro-frontends.
 
-<img src="img/news.JPG"
+<img src="../img/news.JPG"
      alt="Markdown Monster icon"
      style="margin-left: auto; margin-right: auto; width: 80%; display: block" />
