@@ -6,15 +6,19 @@ stateDiagram-v2
 
     state "Action" as ActionView
 
-    state "Main Page" as StartView
-    state "QR Code Scan" as QRCodeView
+    state "Menu" as MenuView
+    state "Geolocalization" as GeolocalizationView
+    state "Filter" as FilterView
+    state "QRCode" as QRCodeView
     state "Categories List" as CategoriesView   
-    state "Products List" as ProductsView
+    state "Products" as ProductsView
     state "Product Deatails" as DetailsView
     
 
     [*] --> Store: User searches and filters
-    Store --> StartView: Contains
+    Store --> MenuView: Contains
+    Store --> GeolocalizationView: Contains
+    Store --> FilterView: Contains
     Store --> Categories: User selects filter
     Categories --> CategoriesView: Contains
     Categories --> Products: User selects a category
@@ -24,10 +28,10 @@ stateDiagram-v2
     [*] --> QRCode: User clicks QR Code
     QRCode --> Details: User scans the QR Code
     QRCode --> QRCodeView: Contains
+    Details --> ProductsView: Contains
     Details --> [*]: User views product information
-    Details --> DetailsView: Contains
 
 
-    Class QRCodeView, ProductsView, CategoriesView, StartView, DetailsView, LegendView coloring
+    Class QRCodeView, ProductsView, CategoriesView, StartView, DetailsView, LegendView, FilterView, GeolocalizationView, MenuView coloring
 
 ```
