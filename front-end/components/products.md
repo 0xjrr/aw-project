@@ -172,7 +172,7 @@ style="margin-left: auto; margin-right: auto; width: 70%; display: block" /></td
 <td>props.weightInfo => <br>prodWeight</td>
 </tr>
 <tr>
-<td>props.carcassInfo =><br>prodCarcass</td>
+<td>props.productDetailInfo =><br>productDetailInfo</td>
 </tr>
 <tr>
 <td>props.finance => <br>prodProfits</td>
