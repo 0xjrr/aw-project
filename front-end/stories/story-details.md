@@ -10,9 +10,7 @@ stateDiagram-v2
     state "Geolocalization" as GeolocalizationView
     state "Filter" as FilterView
     state "QRCode" as QRCodeView
-    state "Categories List" as CategoriesView   
     state "Products" as ProductsView
-    state "Product Deatails" as DetailsView
     
 
     [*] --> Store: User searches and filters
@@ -20,7 +18,7 @@ stateDiagram-v2
     Store --> GeolocalizationView: Contains
     Store --> FilterView: Contains
     Store --> Categories: User selects filter
-    Categories --> CategoriesView: Contains
+    Categories --> ProductsView: Contains
     Categories --> Products: User selects a category
     Products --> ProductsView: Contains
     Products --> Details: User selects a product
