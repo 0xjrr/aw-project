@@ -7,29 +7,26 @@
   <tr>
     <td rowspan="2"><img src="../img/filterSep.JPG"
      style="margin-left: auto; margin-right: auto; width: 70%; display: block" /></td>
-    <td >Popup</td>
-    <td >props.header <br>=> popupFeedbackText 
-    <br> props.HandleClick <br>=> selectEvaluation
+    <td >Header</td>
+    <td >props.header <br>=> filterHeaderTitle 
     </td>
   </tr>
   <tr>
-    <td rowspan="1"> Buttons </td>
-    <td >props.handleClick <br>=> cancelFeedback
-    <br> props.HandleClick <br>=> giveFeedback
+    <td rowspan="1"> Filter </td>
+    <td >props.supermarketFilter <br>=> SupersDropdown
+    <br> props.HandleClick <br>=> FilterSupermarket
     </td>
   </tr>
   <tr>
     <td rowspan="2"><img src="../img/filterSepp.JPG"
      style="margin-left: auto; margin-right: auto; width: 70%; display: block" /></td>
-    <td >Classifications</td>
-    <td> props.header <br>=> HeaderText 
-    <br> props.evaluations <br>=> userEvaluation 
-    <br> props.footer <br>=> FooterText 
+    <td >Headewr</td>
+    <td> props.header <br>=> FilterCategoryTitle 
     </td>
   </tr>
   <tr>
-    <td rowspan="1"> Button 
-    <td >props.handleClick <br>=> feedbackPopup</td>
+    <td rowspan="1"> Buttons
+    <td >props.handleClick <br>=> FilterProductCategory</td>
   </tr>
   
  
