@@ -1,5 +1,6 @@
 # aw-project
 Project for Web Applications FCUL
+You can use this links to navigate our project
 
 [Views](/front-end/views/) \
 [Stories](/front-end/stories/) \
