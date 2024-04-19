@@ -1,0 +1,99 @@
+<table>
+  <tr>
+    <th>BE Service</th>
+    <th>HTTP Method</th>
+    <th>Route</th>
+  </tr>
+  <tr>
+    <td rowspan="5">AuthService</td>
+    <td>POST</td>
+    <td>/auth/login?user={user}&password={password}</td>
+  </tr>
+  <tr>
+    <td>POST</td>
+    <td>/auth/logout</td>
+  </tr>
+  <tr>
+    <td>PUT</td>
+    <td>/auth/register</td>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td>/auth/validate-token?accessToken={token}</td>
+  </tr>
+  <tr>
+    <td>POST</td>
+    <td>/auth/token-renewal?renewalToken={renewalToken}</td>
+  </tr>
+  <tr>
+    <td rowspan="3">ProductInfo</td>
+    <td>GET</td>
+    <td>/products</td>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td>/products/{productId}</td>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td>/products/{storeId}</td>
+  </tr>
+  <tr>
+    <td rowspan="2">StoreLocator</td>
+    <td>GET</td>
+    <td>/stores</td>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td>/stores/{storeId}</td>
+  </tr>
+  <tr>
+    <td rowspan="2">FeedbackManager</td>
+    <td>GET</td>
+    <td>/feedback/{productId}</td>
+  </tr>
+  <tr>
+    <td>POST</td>
+    <td>/feedback/{productId}?msg={feedbakcMsg}</td>
+  </tr>
+  <tr>
+    <td rowspan="5">AccountService</td>
+    <td>GET</td>
+    <td>/preferences</td>
+  </tr>
+  <tr>
+    <td>PUT</td>
+    <td>/preferences?product={productId}</td>
+  </tr>
+  <tr>
+    <td>DELETE</td>
+    <td>/preferences?product={productId}</td>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td>/acount-details</td>
+  </tr>
+  <tr>
+    <td>PUT</td>
+    <td>/acount-details?email={email}&username={username}&password={email}</td>
+  </tr>
+  <tr>
+    <td>QRCodeScanner</td>
+    <td>POST</td>
+    <td>/scan?code={decodedQRCode}</td>
+  </tr>
+  <tr>
+    <td rowspan="2">NewsService</td>
+    <td>GET</td>
+    <td>/news</td>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td>/news/{newsId}</td>
+  </tr>
+  <tr>
+    <td>StatsAnalyzer</td>
+    <td>GET</td>
+    <td>/statistics</td>
+  </tr>
+</table>
