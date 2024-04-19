@@ -2,7 +2,8 @@
 |-----------------|------------------------------------------------------------------|-----------------------------------|
 | AuthService     | Manages user authentication and session management.              | User login data, session tokens.  |
 | ProductInfo     | Provides detailed information on meat products.                  | Product details, pricing, images. |
-| StoreLocator    | Offers store location data and availability of products in store.| Store details, product availability.|
+| StoreFinder     | Provides store location data to help users find stores nearby.    | Store locations, geographic data.  |
+| ProductAvailability | Offers information on the availability of products in stores. | Store inventory, product status.   |
 | FeedbackManager | Handles user feedback and reviews for products.                  | User feedback, rating data.       |
 | AccountService   | Manages user preferences for personalized recommendations.       | User profile, preference settings.|
 | QRCodeScanner   | Decodes QR codes to access specific product details quickly.     | QR code data, Returns product.|
