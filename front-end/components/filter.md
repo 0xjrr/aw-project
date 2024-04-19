@@ -20,7 +20,7 @@
   <tr>
     <td rowspan="2"><img src="../img/filterSepp.JPG"
      style="margin-left: auto; margin-right: auto; width: 70%; display: block" /></td>
-    <td >Headewr</td>
+    <td >Header</td>
     <td> props.header <br>=> FilterCategoryTitle 
     </td>
   </tr>
