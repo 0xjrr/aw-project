@@ -9,4 +9,4 @@
 | QRCodeScanner   | Decodes QR codes to access specific product details quickly.     | QR code data, Returns product.|
 | NewsService     | Delivers latest news and updates related to meat products.       | News articles, update logs.       |
 | StatsAnalyzer   | Gathers and analyzes product and sales data for insights.          | Delivers statistics, sales data.     |
-| GelocationHandler | Making use of Google Maps API displays current filtered supermarket.  | Delivers geographic information about the desired store.     |
+   |
