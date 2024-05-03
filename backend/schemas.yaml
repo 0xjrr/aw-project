@@ -1,0 +1,45 @@
+components:
+  schemas:
+    LoginRequest:
+      type: object
+      properties:
+        user:
+          type: string
+        password:
+          type: string
+
+    RegisterRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+
+    TokenResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+        refreshToken:
+          type: string
+
+    ValidationResponse:
+      type: object
+      properties:
+        isValid:
+          type: boolean
+
+    Product:
+      type: object
+      properties:
+        productId:
+          type: int
+        productName:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
