@@ -1,5 +1,19 @@
 components:
+  
   schemas:
+
+    User: 
+      type: object 
+      properties:
+        id: 
+          type: integer
+        name: 
+          type: string
+        savedProd: 
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+
     LoginRequest:
       type: object
       properties:
@@ -18,20 +32,6 @@ components:
         email:
           type: string
 
-    TokenResponse:
-      type: object
-      properties:
-        accessToken:
-          type: string
-        refreshToken:
-          type: string
-
-    ValidationResponse:
-      type: object
-      properties:
-        isValid:
-          type: boolean
-
     Product:
       type: object
       properties:
@@ -43,3 +43,38 @@ components:
           type: string
         price:
           type: number
+        image:
+          type: string
+        storeid:
+          type: integer
+
+    Feedback:
+      type: object
+      properties:
+        msg:
+          type: string
+        prod:
+          $ref: '#/components/schemas/Product'
+        user:
+          $ref: '#/components/schemas/User'
+
+    News: 
+      type: object
+      properties:
+        newsId:
+          type: integer
+
+    NewsList: 
+      type: array
+      items:
+        $ref: '#/components/schemas/News'
+      
+    Statistics:
+      type: object
+      properties:
+        graph: string
+
+    QRcode:
+      type: object 
+      properties:
+        code: string
