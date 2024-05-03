@@ -36,7 +36,7 @@ components:
       type: object
       properties:
         productId:
-          type: int
+          type: integer
         productName:
           type: string
         description:
