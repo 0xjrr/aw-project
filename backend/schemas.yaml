@@ -9,6 +9,8 @@ components:
           type: integer
         name: 
           type: string
+        mail:
+          type: string
         savedProd: 
           type: array
           items:
@@ -45,8 +47,8 @@ components:
           type: number
         image:
           type: string
-        storeid:
-          type: integer
+        store:
+          $ref: '#/components/schemas/Store'
 
     Feedback:
       type: object
@@ -69,6 +71,14 @@ components:
       items:
         $ref: '#/components/schemas/News'
       
+    Store:
+      type: object
+      properties:
+        storeid:
+          type: integer
+        storename:
+          type: string
+    
     Statistics:
       type: object
       properties:
