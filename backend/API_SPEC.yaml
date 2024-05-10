@@ -1,0 +1,102 @@
+openapi: "3.0.2"
+info:
+  title: "Group 11 API Specification"
+  description: "Specification of the Project of Group 11 based on the OpenAPI."
+  version: "0.0"
+
+servers:
+  - url: "meat"
+
+paths:
+
+
+components:
+  
+  schemas:
+
+    User: 
+      type: object 
+      properties:
+        id: 
+          type: integer
+        name: 
+          type: string
+        mail:
+          type: string
+        savedProd: 
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+
+    LoginRequest:
+      type: object
+      properties:
+        user:
+          type: string
+        password:
+          type: string
+
+    RegisterRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+
+    Product:
+      type: object
+      properties:
+        productId:
+          type: integer
+        productName:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        image:
+          type: string
+        store:
+          $ref: '#/components/schemas/Store'
+
+    Feedback:
+      type: object
+      properties:
+        msg:
+          type: string
+        prod:
+          $ref: '#/components/schemas/Product'
+        user:
+          $ref: '#/components/schemas/User'
+
+    News: 
+      type: object
+      properties:
+        newsId:
+          type: integer
+
+    NewsList: 
+      type: array
+      items:
+        $ref: '#/components/schemas/News'
+      
+    Store:
+      type: object
+      properties:
+        storeid:
+          type: integer
+        storename:
+          type: string
+    
+    Statistics:
+      type: object
+      properties:
+        graph: string
+
+    QRcode:
+      type: object 
+      properties:
+        code: string

@@ -1,10 +1,10 @@
 | BE Services      | Requests                                              | Responses             |
 |-----------------|------------------------------------------------------------------|-----------------------------------|
 | AuthService     | LoginRequest, RegisterRequest.              | User  |
-| ProductInfo     | Placeholder.                  | Product |
-| StoreLocator     | /stores/{storeId} /stores   | Store.  |
+| ProductInfo     | /product , /product/PRODID.                  | Product |
+| StoreLocator     | /stores/{storeId} , /store   | Store.  |
 | FeedbackManager | /feedback/{productId} | Feedback   |
-| AccountService | Placeholder.                  | Product, User       |
+| AccountService | /preferences/productId , /account | Product, User       |
 | QRCodeScanner   | QRcode       | Product|
-| NewsService   | Placeholder.     |News, NewsList|
-| StatsAnalyzer     | Placeholder.       | Statistics       |
+| NewsService   | /news/newsID , /news.     |News, NewsList|
+| StatsAnalyzer     | /statistics.       | Statistics       |
