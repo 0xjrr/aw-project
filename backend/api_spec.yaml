@@ -1,0 +1,289 @@
+openapi: 3.0.3
+info:
+  title: QRMeat - Backend Services API
+  description: API specification of the backend services for the web application QRMeat.
+  version: 1.0.0
+servers:
+  - url: https://api.webapplicationsfcul.com
+    description: Production server
+  - url: https://staging-api.webapplicationsfcul.com
+    description: Staging server
+paths:
+  /auth/login:
+    post:
+      summary: User login
+      parameters:
+        - name: user
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful login
+  /auth/logout:
+    post:
+      summary: User logout
+      responses:
+        '200':
+          description: Successful logout
+  /auth/register:
+    put:
+      summary: Register a new user
+      responses:
+        '200':
+          description: Successful registration
+  /auth/validate-token:
+    get:
+      summary: Validate access token
+      parameters:
+        - name: accessToken
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Token is valid
+  /auth/token-renewal:
+    post:
+      summary: Renew access token
+      parameters:
+        - name: renewalToken
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Token renewed successfully
+  /products:
+    get:
+      summary: Get all products
+      responses:
+        '200':
+          description: Successful response with product list
+  /products/{productId}:
+    get:
+      summary: Get product by ID
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with product details
+  /products/{storeId}:
+    get:
+      summary: Get products by store ID
+      parameters:
+        - name: storeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with products for the store
+  /stores:
+    get:
+      summary: Get all stores
+      responses:
+        '200':
+          description: Successful response with store list
+  /stores/{storeId}:
+    get:
+      summary: Get store by ID
+      parameters:
+        - name: storeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with store details
+  /feedback/{productId}:
+    get:
+      summary: Get feedback for a product
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with feedback
+    post:
+      summary: Submit feedback for a product
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: feedbackMsg
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Feedback submitted successfully
+  /preferences:
+    get:
+      summary: Get user preferences
+      responses:
+        '200':
+          description: Successful response with preferences
+    put:
+      summary: Update user preferences
+      parameters:
+        - name: product
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Preferences updated successfully
+    delete:
+      summary: Delete user preferences
+      parameters:
+        - name: product
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Preferences deleted successfully
+  /account-details:
+    get:
+      summary: Get account details
+      responses:
+        '200':
+          description: Successful response with account details
+    put:
+      summary: Update account details
+      parameters:
+        - name: email
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: username
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Account details updated successfully
+  /scan:
+    post:
+      summary: Scan QR code
+      parameters:
+        - name: code
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: QR code scanned successfully
+  /news:
+    get:
+      summary: Get all news
+      responses:
+        '200':
+          description: Successful response with news list
+  /news/{newsId}:
+    get:
+      summary: Get news by ID
+      parameters:
+        - name: newsId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with news details
+  /statistics:
+    get:
+      summary: Get statistics
+      responses:
+        '200':
+          description: Successful response with statistics
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        price:
+          type: number
+        description:
+          type: string
+        image:
+          type: string
+    Store:
+      type: object
+      properties:
+        id:
+          type: string
+        location:
+          type: string
+        name:
+          type: string
+    Feedback:
+      type: object
+      properties:
+        productId:
+          type: string
+        userId:
+          type: string
+        feedbackMsg:
+          type: string
+    News:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        content:
+          type: string
+    Statistics:
+      type: object
+      properties:
+        salesData:
+          type: array
+          items:
+            type: object
