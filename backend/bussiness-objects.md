@@ -5,6 +5,6 @@
 | StoreLocator      | /stores/{storeId}, /store                  | Store                  |
 | FeedbackManager   | /feedback/{productId}                      | Feedback               |
 | AccountService    | /preferences/productId, /account           | Product, User          |
-| QRCodeScanner     | /qrcode                                    | Product                |
+| QRCodeScanner     | /scan                                    | Product                |
 | NewsService       | /news/newsID, /news                        | News, NewsList         |
 | StatsAnalyzer     | /statistics                                | Statistics             |
