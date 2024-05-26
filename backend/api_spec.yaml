@@ -10,7 +10,10 @@ servers:
     description: Staging server
 paths:
   /auth/login:
+    
     post:
+      tags:
+        - "AuthService"
       summary: User login
       parameters:
         - name: user
@@ -28,18 +31,24 @@ paths:
           description: Successful login
   /auth/logout:
     post:
+      tags:
+        - "AuthService"
       summary: User logout
       responses:
         '200':
           description: Successful logout
   /auth/register:
     put:
+      tags:
+        - "AuthService"
       summary: Register a new user
       responses:
         '200':
           description: Successful registration
   /auth/validate-token:
     get:
+      tags:
+        - "AuthService"
       summary: Validate access token
       parameters:
         - name: accessToken
@@ -52,6 +61,8 @@ paths:
           description: Token is valid
   /auth/token-renewal:
     post:
+      tags:
+        - "AuthService"
       summary: Renew access token
       parameters:
         - name: renewalToken
@@ -64,12 +75,16 @@ paths:
           description: Token renewed successfully
   /products:
     get:
+      tags:
+        - "ProductInfo"
       summary: Get all products
       responses:
         '200':
           description: Successful response with product list
   /products/{productId}:
     get:
+      tags:
+        - "ProductInfo"
       summary: Get product by ID
       parameters:
         - name: productId
@@ -82,6 +97,8 @@ paths:
           description: Successful response with product details
   /products/{storeId}:
     get:
+      tags:
+        - "ProductInfo"
       summary: Get products by store ID
       parameters:
         - name: storeId
@@ -94,12 +111,16 @@ paths:
           description: Successful response with products for the store
   /stores:
     get:
+      tags:
+        - "StoreFinder"
       summary: Get all stores
       responses:
         '200':
           description: Successful response with store list
   /stores/{storeId}:
     get:
+      tags:
+        - "StoreFinder"
       summary: Get store by ID
       parameters:
         - name: storeId
@@ -112,6 +133,8 @@ paths:
           description: Successful response with store details
   /feedback/{productId}:
     get:
+      tags:
+        - "FeedbackManager"
       summary: Get feedback for a product
       parameters:
         - name: productId
@@ -122,7 +145,15 @@ paths:
       responses:
         '200':
           description: Successful response with feedback
+          
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Feedback"
+          
     post:
+      tags:
+        - "FeedbackManager"
       summary: Submit feedback for a product
       parameters:
         - name: productId
@@ -140,11 +171,16 @@ paths:
           description: Feedback submitted successfully
   /preferences:
     get:
+      tags:
+        - "AccountService"
       summary: Get user preferences
       responses:
         '200':
           description: Successful response with preferences
+
     put:
+      tags:
+        - "AccountService"
       summary: Update user preferences
       parameters:
         - name: product
@@ -156,6 +192,8 @@ paths:
         '200':
           description: Preferences updated successfully
     delete:
+      tags:
+        - "AccountService"
       summary: Delete user preferences
       parameters:
         - name: product
@@ -168,11 +206,19 @@ paths:
           description: Preferences deleted successfully
   /account-details:
     get:
+      tags:
+        - "AccountService"
       summary: Get account details
       responses:
         '200':
           description: Successful response with account details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
     put:
+      tags:
+        - "AccountService"
       summary: Update account details
       parameters:
         - name: email
@@ -195,6 +241,8 @@ paths:
           description: Account details updated successfully
   /scan:
     post:
+      tags:
+        - "QRCodeScanner"
       summary: Scan QR code
       parameters:
         - name: code
@@ -207,12 +255,20 @@ paths:
           description: QR code scanned successfully
   /news:
     get:
+      tags:
+        - "NewsService"
       summary: Get all news
       responses:
         '200':
           description: Successful response with news list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NewsList"
   /news/{newsId}:
     get:
+      tags:
+        - "NewsService"
       summary: Get news by ID
       parameters:
         - name: newsId
@@ -225,34 +281,49 @@ paths:
           description: Successful response with news details
   /statistics:
     get:
+      tags:
+        - "StatsAnalyzer"
       summary: Get statistics
       responses:
         '200':
           description: Successful response with statistics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Statistics"
+          
 components:
+  
   schemas:
-    User:
-      type: object
+
+    User: 
+      type: object 
       properties:
-        id:
+        id: 
+          type: integer
+        name: 
           type: string
-        username:
+        mail:
           type: string
-        email:
-          type: string
+        savedProd: 
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
     Product:
       type: object
       properties:
-        id:
+        productId:
+          type: integer
+        productName:
           type: string
-        name:
+        description:
           type: string
         price:
           type: number
-        description:
-          type: string
         image:
           type: string
+        store:
+          $ref: '#/components/schemas/Store'
     Store:
       type: object
       properties:
@@ -280,6 +351,14 @@ components:
           type: string
         content:
           type: string
+          
+    NewsList: 
+      type: array
+      items:
+        $ref: '#/components/schemas/News'
+        
+    
+    
     Statistics:
       type: object
       properties:
@@ -287,3 +366,5 @@ components:
           type: array
           items:
             type: object
+            
+    

@@ -1,15 +1,297 @@
-openapi: "3.0.2"
+openapi: 3.0.3
 info:
-  title: "Group 11 API Specification"
-  description: "Specification of the Project of Group 11 based on the OpenAPI."
-  version: "0.0"
-
+  title: QRMeat - Backend Services API
+  description: API specification of the backend services for the web application QRMeat.
+  version: 1.0.0
 servers:
-  - url: "meat"
-
+  - url: https://api.webapplicationsfcul.com
+    description: Production server
+  - url: https://staging-api.webapplicationsfcul.com
+    description: Staging server
 paths:
+  /auth/login:
+    
+    post:
+      tags:
+        - "AuthService"
+      summary: User login
+      parameters:
+        - name: user
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful login
+  /auth/logout:
+    post:
+      tags:
+        - "AuthService"
+      summary: User logout
+      responses:
+        '200':
+          description: Successful logout
+  /auth/register:
+    put:
+      tags:
+        - "AuthService"
+      summary: Register a new user
+      responses:
+        '200':
+          description: Successful registration
+  /auth/validate-token:
+    get:
+      tags:
+        - "AuthService"
+      summary: Validate access token
+      parameters:
+        - name: accessToken
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Token is valid
+  /auth/token-renewal:
+    post:
+      tags:
+        - "AuthService"
+      summary: Renew access token
+      parameters:
+        - name: renewalToken
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Token renewed successfully
+  /products:
+    get:
+      tags:
+        - "ProductInfo"
+      summary: Get all products
+      responses:
+        '200':
+          description: Successful response with product list
+  /products/{productId}:
+    get:
+      tags:
+        - "ProductInfo"
+      summary: Get product by ID
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with product details
+  /products/{storeId}:
+    get:
+      tags:
+        - "ProductInfo"
+      summary: Get products by store ID
+      parameters:
+        - name: storeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with products for the store
+  /stores:
+    get:
+      tags:
+        - "StoreFinder"
+      summary: Get all stores
+      responses:
+        '200':
+          description: Successful response with store list
+  /stores/{storeId}:
+    get:
+      tags:
+        - "StoreFinder"
+      summary: Get store by ID
+      parameters:
+        - name: storeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with store details
+  /feedback/{productId}:
+    get:
+      tags:
+        - "FeedbackManager"
+      summary: Get feedback for a product
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with feedback
+          
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Feedback"
+          
+    post:
+      tags:
+        - "FeedbackManager"
+      summary: Submit feedback for a product
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: feedbackMsg
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Feedback submitted successfully
+  /preferences:
+    get:
+      tags:
+        - "AccountService"
+      summary: Get user preferences
+      responses:
+        '200':
+          description: Successful response with preferences
 
-
+    put:
+      tags:
+        - "AccountService"
+      summary: Update user preferences
+      parameters:
+        - name: product
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Preferences updated successfully
+    delete:
+      tags:
+        - "AccountService"
+      summary: Delete user preferences
+      parameters:
+        - name: product
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Preferences deleted successfully
+  /account-details:
+    get:
+      tags:
+        - "AccountService"
+      summary: Get account details
+      responses:
+        '200':
+          description: Successful response with account details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+    put:
+      tags:
+        - "AccountService"
+      summary: Update account details
+      parameters:
+        - name: email
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: username
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Account details updated successfully
+  /scan:
+    post:
+      tags:
+        - "QRCodeScanner"
+      summary: Scan QR code
+      parameters:
+        - name: code
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: QR code scanned successfully
+  /news:
+    get:
+      tags:
+        - "NewsService"
+      summary: Get all news
+      responses:
+        '200':
+          description: Successful response with news list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NewsList"
+  /news/{newsId}:
+    get:
+      tags:
+        - "NewsService"
+      summary: Get news by ID
+      parameters:
+        - name: newsId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with news details
+  /statistics:
+    get:
+      tags:
+        - "StatsAnalyzer"
+      summary: Get statistics
+      responses:
+        '200':
+          description: Successful response with statistics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Statistics"
+          
 components:
   
   schemas:
@@ -27,25 +309,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Product'
-
-    LoginRequest:
-      type: object
-      properties:
-        user:
-          type: string
-        password:
-          type: string
-
-    RegisterRequest:
-      type: object
-      properties:
-        username:
-          type: string
-        password:
-          type: string
-        email:
-          type: string
-
     Product:
       type: object
       properties:
@@ -61,42 +324,47 @@ components:
           type: string
         store:
           $ref: '#/components/schemas/Store'
-
+    Store:
+      type: object
+      properties:
+        id:
+          type: string
+        location:
+          type: string
+        name:
+          type: string
     Feedback:
       type: object
       properties:
-        msg:
+        productId:
           type: string
-        prod:
-          $ref: '#/components/schemas/Product'
-        user:
-          $ref: '#/components/schemas/User'
-
-    News: 
+        userId:
+          type: string
+        feedbackMsg:
+          type: string
+    News:
       type: object
       properties:
-        newsId:
-          type: integer
-
+        id:
+          type: string
+        title:
+          type: string
+        content:
+          type: string
+          
     NewsList: 
       type: array
       items:
         $ref: '#/components/schemas/News'
-      
-    Store:
-      type: object
-      properties:
-        storeid:
-          type: integer
-        storename:
-          type: string
+        
+    
     
     Statistics:
       type: object
       properties:
-        graph: string
-
-    QRcode:
-      type: object 
-      properties:
-        code: string
+        salesData:
+          type: array
+          items:
+            type: object
+            
+    
