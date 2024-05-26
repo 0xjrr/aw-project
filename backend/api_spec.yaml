@@ -95,6 +95,10 @@ paths:
       responses:
         '200':
           description: Successful response with product details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
   /products/{storeId}:
     get:
       tags:
@@ -109,6 +113,10 @@ paths:
       responses:
         '200':
           description: Successful response with products for the store
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Store"
   /stores:
     get:
       tags:
@@ -117,6 +125,11 @@ paths:
       responses:
         '200':
           description: Successful response with store list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Store"
+
   /stores/{storeId}:
     get:
       tags:
@@ -131,6 +144,11 @@ paths:
       responses:
         '200':
           description: Successful response with store details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Store"
+
   /feedback/{productId}:
     get:
       tags:
@@ -279,6 +297,10 @@ paths:
       responses:
         '200':
           description: Successful response with news details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/News"
   /statistics:
     get:
       tags:
@@ -333,6 +355,10 @@ components:
           type: string
         name:
           type: string
+        prod_list: 
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
     Feedback:
       type: object
       properties:
