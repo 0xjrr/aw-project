@@ -6,8 +6,6 @@ info:
 servers:
   - url: https://api.webapplicationsfcul.com
     description: Production server
-  - url: https://staging-api.webapplicationsfcul.com
-    description: Staging server
 paths:
   /auth/login:
     
@@ -81,6 +79,26 @@ paths:
       responses:
         '200':
           description: Successful response with product list
+          
+  /products/{prodCategory}:
+    get:
+      tags:
+        - "ProductInfo"
+      summary: Get product by category
+      parameters:
+        - name: prodCategory
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with product list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProdList"
+                
   /products/{productId}:
     get:
       tags:
@@ -271,6 +289,10 @@ paths:
       responses:
         '200':
           description: QR code scanned successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
   /news:
     get:
       tags:
@@ -340,12 +362,23 @@ components:
           type: string
         description:
           type: string
+        prodDetails:
+          type: object
         price:
           type: number
         image:
           type: string
         store:
           $ref: '#/components/schemas/Store'
+
+    ProdList:
+      type: object
+      properties:
+        prod_list: 
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+
     Store:
       type: object
       properties:
@@ -356,9 +389,9 @@ components:
         name:
           type: string
         prod_list: 
-          type: array
+          type: object
           items:
-            $ref: '#/components/schemas/Product'
+            $ref: '#/components/schemas/ProdList'
     Feedback:
       type: object
       properties:

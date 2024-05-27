@@ -1,7 +1,7 @@
 | BE Services       | Requests                                   | Responses              |
 |-------------------|--------------------------------------------|------------------------|
 | AuthService       |  /auth/login, /auth/logout, /auth/register, /auth/validate-token, /auth/token-renewal      | User                   |
-| ProductInfo       | /product, /products/{productId},/products/{storeId}                  | Product                |
+| ProductInfo       | /product, /products/{prodCategory}, /products/{productId},/products/{storeId}                  | Product                |
 | StoreLocator      | /stores/{storeId}, /stores                 | Store                  |
 | FeedbackManager   | /feedback/{productId}                      | Feedback               |
 | AccountService    | /preferences, /account-details          | Product, User          |

@@ -26,13 +26,17 @@
     <td>/auth/token-renewal?renewalToken={renewalToken}</td>
   </tr>
   <tr>
-    <td rowspan="3">ProductInfo</td>
+    <td rowspan="4">ProductInfo</td>
     <td>GET</td>
     <td>/products</td>
   </tr>
   <tr>
     <td>GET</td>
     <td>/products/{productId}</td>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td>/products/{prodCategory}</td>
   </tr>
   <tr>
     <td>GET</td>
